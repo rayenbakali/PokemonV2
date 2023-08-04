@@ -3,6 +3,11 @@ import "./App.css";
 import Axios from "axios";
 
 function App() {
+  const handleEnter = (event) => {
+    if (event.key === "Enter") {
+      searchPokemon();
+    }
+  };
   const [pokemonName, setPokemonName] = useState("");
   const [pokemonChosen, setPokemonChosen] = useState(false);
   const [PokeInfo, setPokeInfo] = useState({
@@ -39,6 +44,7 @@ function App() {
           onChange={(event) => {
             setPokemonName(event.target.value);
           }}
+          onKeyPress={handleEnter}
         ></input>
         <button onClick={searchPokemon}>Search Pokemon</button>
       </div>
